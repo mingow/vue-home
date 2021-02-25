@@ -1,0 +1,23 @@
+{
+  "id": "2388540",
+  "name": "mes",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11494512",
+      "name": "consumption-fill",
+      "font_class": "charge-calc",
+      "unicode": "e79d",
+      "unicode_decimal": 59293
+    },
+    {
+      "icon_id": "8152734",
+      "name": "MES (1)",
+      "font_class": "MES",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    }
+  ]
+}
