@@ -73,7 +73,7 @@ export default {
     naviIndex:-1,
     navi:[
       {title:'通用',icon:'icon-all',path:'/'},
-      {title:'加工费计算',icon:'icon-charge-calc',path:'/chargesCalc'},
+      {title:'SMT点数计算',icon:'icon-electronics',path:'/dotCalc'},
     ],
     expand:true,
   }),

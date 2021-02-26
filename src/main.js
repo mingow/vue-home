@@ -3,7 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import Meta from "vue-meta";
 import VueRouter from 'vue-router';
-import ChargesCalc from './pages/chargesCalc/index'
+import dotCalc from './pages/dotCalc/index'
  
 
 Vue.config.productionTip = false
@@ -11,7 +11,7 @@ Vue.use(Meta);
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/chargesCalc', component: ChargesCalc },
+  { path: '/dotCalc', component: dotCalc },
 ]
  
 const router = new VueRouter({

@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "11488035",
+      "name": "electronics",
+      "font_class": "electronics",
+      "unicode": "e74e",
+      "unicode_decimal": 59214
+    },
+    {
+      "icon_id": "11488122",
+      "name": "sales center",
+      "font_class": "salescenter",
+      "unicode": "e762",
+      "unicode_decimal": 59234
+    },
+    {
+      "icon_id": "11488136",
+      "name": "category products",
+      "font_class": "Similarproducts",
+      "unicode": "e766",
+      "unicode_decimal": 59238
+    },
+    {
       "icon_id": "11474219",
       "name": "all",
       "font_class": "all",
