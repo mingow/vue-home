@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app v-resize="onResize">
     <v-app-bar
       app
       color="primary"
@@ -22,7 +22,7 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-navigation-drawer permanent expand-on-hover clipped app>
+    <v-navigation-drawer :mini-variant="!expand" :expand-on-hover="!expand" permanent clipped app>
       <v-list>
         <v-list-item link>
           <v-list-item-content>
@@ -38,7 +38,7 @@
         nav
         dense
       >
-        <v-list-item-group v-model="model">
+        <v-list-item-group v-model="naviIndex" mandatory>
           <router-link v-for="(item,index) in navi" :key="index" :to="item.path">
             <v-list-item link>
               <v-list-item-icon><v-icon>{{item.icon}}</v-icon></v-list-item-icon>
@@ -55,7 +55,6 @@
 </template>
 
 <script>
-import logo from './assets/logo.svg'
 export default {
   name: 'App',
 
@@ -69,14 +68,44 @@ export default {
     }
   },
   data: () => ({
-    logo:logo,
     username:'王萌',
     mail:'wangmeng@tp-link.com.cn',
-    model:-1,
+    naviIndex:-1,
     navi:[
-      {title:'加工费计算',icon:'icon-charge-calc',path:'/chargesCalc'}
-    ]
+      {title:'通用',icon:'icon-all',path:'/'},
+      {title:'加工费计算',icon:'icon-charge-calc',path:'/chargesCalc'},
+    ],
+    expand:true,
   }),
+  watch:{
+    naviIndex:function(val){
+      if(val==-1){
+        this.$router.push('/')
+      }
+    },
+    
+  },
+  methods:{
+    handleRoute:function(){
+      const route = this.$route;
+      let res = this.navi.findIndex((i)=>{
+        return i.path===route.path?true:false
+      })
+      this.naviIndex = res
+    },
+    onResize () {
+      const width = window.innerWidth
+      if(width<1200){
+        this.expand = false
+      }else{
+        this.expand = true
+      }
+    },
+  },
+  mounted:function(){
+    this.handleRoute()
+    this.onResize()
+  }
 };
 </script>
 <style>

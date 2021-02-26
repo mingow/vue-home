@@ -3,7 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import Meta from "vue-meta";
 import VueRouter from 'vue-router';
-import ChargesCalc from './pages/chargesCalc'
+import ChargesCalc from './pages/chargesCalc/index'
  
 
 Vue.config.productionTip = false
