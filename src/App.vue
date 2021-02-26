@@ -24,42 +24,32 @@
     </v-app-bar>
     <v-navigation-drawer permanent expand-on-hover clipped app>
       <v-list>
-          <v-list-item link>
-            <v-list-item-content>
-              <v-list-item-title class="title">
-                {{username}}
-              </v-list-item-title>
-              <v-list-item-subtitle>{{mail}}</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-        <v-divider></v-divider>
-        <v-list
-          nav
-          dense
-        >
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>icon-charge-calc</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>加工费计算</v-list-item-title>
-          </v-list-item>
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-account-multiple</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Shared with me</v-list-item-title>
-          </v-list-item>
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-star</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Starred</v-list-item-title>
-          </v-list-item>
-        </v-list>
+        <v-list-item link>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              {{username}}
+            </v-list-item-title>
+            <v-list-item-subtitle>{{mail}}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-divider></v-divider>
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group v-model="model">
+          <router-link v-for="(item,index) in navi" :key="index" :to="item.path">
+            <v-list-item link>
+              <v-list-item-icon><v-icon>{{item.icon}}</v-icon></v-list-item-icon>
+              <v-list-item-title>{{item.title}}</v-list-item-title>
+            </v-list-item>
+          </router-link>
+        </v-list-item-group>
+      </v-list>
     </v-navigation-drawer>
     <v-main>
-      
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -81,7 +71,21 @@ export default {
   data: () => ({
     logo:logo,
     username:'王萌',
-    mail:'wangmeng@tp-link.com.cn'
+    mail:'wangmeng@tp-link.com.cn',
+    model:-1,
+    navi:[
+      {title:'加工费计算',icon:'icon-charge-calc',path:'/chargesCalc'}
+    ]
   }),
 };
 </script>
+<style>
+a {
+  text-decoration: none;
+}
+ 
+.router-link-active {
+  text-decoration: none;
+}
+
+</style>
