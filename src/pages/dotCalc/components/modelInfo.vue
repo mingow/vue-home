@@ -8,7 +8,7 @@
             <v-text-field @change="getModel" :value.sync="id" :counter="10" label='产品编码'></v-text-field>
           </v-col>
           <v-col cols="12" md="9" >
-            <v-text-field :value='model' :loading="loading" label='描述'></v-text-field>
+            <v-text-field disabled :value='model' :loading="loading" label='描述'></v-text-field>
           </v-col>
         </v-row>
       </v-container>
@@ -36,6 +36,7 @@ export default {
           self.model = res.data.data.results[0].ITEM_DESC
         }else{
           self.model = '';
+          self.$emit('msg','未查询到描述')
         }
       })
     }
